@@ -3,6 +3,7 @@ const backgroundColor = document.getElementById("background-color");
 const textColor = document.getElementById("text-color");
 const fontSize = document.getElementById("font-size");
 const borderRadius = document.getElementById("border-radius");
+const borderRadiusValue = document.getElementById("border-radius-value");
 const buttonCssCode = document.getElementById("button-css-code");
 
 // const styleApply=(clickItem,styleName, styleValue)=>{
@@ -26,6 +27,15 @@ const buttonCssCode = document.getElementById("button-css-code");
 // styleApply(textColor,"color",backgroundColor.value);
 
 
+borderRadius.addEventListener("change",()=>{
+    styleApplyButton.style.borderRadius =`${borderRadius.value}px`;
+    borderRadiusValue.value=`${borderRadius.value}`
+})
+
+borderRadiusValue.addEventListener("change",()=>{
+    styleApplyButton.style.borderRadius =`${borderRadiusValue.value}px`;
+    borderRadius.value=`${borderRadiusValue.value}`;
+})
 
 backgroundColor.addEventListener("change",()=>{
     let backgroundColorValue = backgroundColor.value;
@@ -36,11 +46,7 @@ textColor.addEventListener("change",()=>{
     let textColorValue = textColor.value;
     styleApplyButton.style.color =`${textColorValue}`;
 })
-borderRadius.addEventListener("change",()=>{
-    let borderRadiusValue = borderRadius.value;
-    styleApplyButton.style.borderRadius =`${borderRadiusValue}px`;
-    console.log(borderRadiusValue)
-})
+
 fontSize.addEventListener("change",()=>{ 
     let fontSizeValue = fontSize.value;
     styleApplyButton.style.fontSize =`${fontSizeValue}px`;
