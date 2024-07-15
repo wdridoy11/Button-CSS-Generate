@@ -37,20 +37,8 @@ borderRadiusValue.addEventListener("change",()=>{
     borderRadius.value=`${borderRadiusValue.value}`;
 })
 
-backgroundColor.addEventListener("change",()=>{
-    let backgroundColorValue = backgroundColor.value;
-    styleApplyButton.style.backgroundColor =`${backgroundColorValue}`;
-})
 
-textColor.addEventListener("change",()=>{
-    let textColorValue = textColor.value;
-    styleApplyButton.style.color =`${textColorValue}`;
-})
 
-fontSize.addEventListener("change",()=>{ 
-    let fontSizeValue = fontSize.value;
-    styleApplyButton.style.fontSize =`${fontSizeValue}px`;
-})
 
 buttonCssCode.innerHTML=`
     background-color: ${backgroundColor.value};<br/>
@@ -58,3 +46,46 @@ buttonCssCode.innerHTML=`
     font-size: ${fontSize.value} px;<br/>
     border-radius: ${borderRadius.value} px;
 `
+
+
+
+
+
+
+
+
+
+
+// textColor.addEventListener("change",()=>{
+//     let textColorValue = textColor.value;
+//     styleApplyButton.style.color =`${textColorValue}`;
+// })
+// backgroundColor.addEventListener("change",()=>{
+//     let backgroundColorValue = backgroundColor.value;
+//     styleApplyButton.style.backgroundColor =`${backgroundColorValue}`;
+// })
+
+
+// fontSize.addEventListener("change",()=>{ 
+//     let fontSizeValue = fontSize.value;
+//     styleApplyButton.style.fontSize =`${fontSizeValue}px`;
+// })
+
+const styleApply=(clickItem,styleName)=>{
+    clickItem.addEventListener("change",()=>{
+        let itemValue = clickItem.value;
+        if(styleName === "backgroundColor"){
+            styleApplyButton.style.backgroundColor =`${itemValue}`;
+        }
+        else if(styleName === "color"){
+            styleApplyButton.style.color =`${itemValue}`;
+        }
+        else if(styleName === "fontSize"){
+            styleApplyButton.style.fontSize =`${itemValue}px`;
+        }
+    })
+}
+
+styleApply(backgroundColor,"backgroundColor");
+styleApply(textColor,"color");
+styleApply(fontSize,"fontSize");
